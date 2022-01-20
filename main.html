@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso JS 40min Platzi</title>
+    <script type="text/javascript">
+        async function getCountry() {
+            const resp = await fetch("https://api.nationalize.io?name=Stevenson");
+            return resp.json();
+        }
+
+        function showName(name) {
+            document.getElementById("cambio").innerHTML = name.country[0].country_id;
+        }
+
+        getCountry().then(showName);
+    </script>
+
+</head>
+
+<body>
+    <h1>Título de página</h1>
+    <p>Parrafo</p>
+    <p id="cambio">Este parrafo no debería salir... (debe cambiar)</p>
+
+</body>
+
+</html>
